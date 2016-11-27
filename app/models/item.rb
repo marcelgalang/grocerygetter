@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  belongs_to :list # Add methods to my model.
+  belongs_to :list 
   validates :description, :presence => true
   STATUS = {
     :incomplete => 0,
