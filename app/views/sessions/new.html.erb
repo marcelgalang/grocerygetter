@@ -1,21 +1,17 @@
-<%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
+<header id="header">
+  <h1>Login</h1>
 
-  <div class="field">
-    <%= f.label :username, "Select your name" %><br>
-    <%= f.text_field :username %>
-  </div>
+  <%= form_tag(sessions_path) do %>
+    <input type="text" id="new-todo" name="username" placeholder="Your Username" />
 
-  <div class="field">
-    <%= f.label :email, "Select your name" %><br>
-    <%= f.text_field :email %>
-  </div>
+    <input type="text" id="new-todo" name="email" placeholder="Your Email" />
 
-  <div class="field">
-    <%= f.label :password, "Enter your password" %><br>
-    <%= f.password_field :password %>
-  </div>
+    <input type="password" id="new-todo" name="password" placeholder="Your Password" />
 
-  <div class="actions">
-    <%= f.submit "Sign In"  %>
-  </div>
-<% end %>
+    <button type="submit">
+  <% end %>
+</header>
+
+<footer id="footer">
+  <%= link_to "Login via Facebook", '/auth/facebook' %>
+</footer>
