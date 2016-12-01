@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #   resources :items
   # end
   #
-  # resources :users
+  resources :users
   #
   # # roots
   # root "static_pages#home"
@@ -23,11 +23,11 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get 'items/create'
-  
+
   resources :lists do
    resources :items
   end
 
-  root 'lists#index'
+  root 'static_pages#home'
 
 end

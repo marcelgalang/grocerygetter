@@ -13,6 +13,8 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @item = Item.new
+    @user = List.find(@list.user)
+    @users = User.all
   end
 
   # GET /lists/new

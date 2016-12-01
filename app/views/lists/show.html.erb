@@ -14,10 +14,18 @@
     </ul>
   </section>
   <footer class="footer">
-    <div>Add Users to List
 
+<%= form_for @user do |f| %>
 
-    </div>
+  <div class="field"><%= f.label :username, "Add a User" %><br>
+    <%= f.collection_select(:id, @users, :id, :username) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add"  %>
+  </div>
+<% end %>
 
   </footer>
 </section>
+<%= link_to 'Logout', logout_path %> | <%= link_to 'Your Lists', lists_path %>

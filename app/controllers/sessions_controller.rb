@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :login_required, :only => [:new, :create]
+  # skip_before_action :login_required, :only => [:new, :create]
 
   def new
   end
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       user = User.find_by(:email => params[:email])
       if user && user.authenticate(params[:password])
         login(user)
-        redirect_to root_path
+        redirect_to lists_path
       else
         flash.now[:notice] = "Could not find that person, sorry!"
         render :new

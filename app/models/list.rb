@@ -1,9 +1,9 @@
 class List < ApplicationRecord
   has_many :items
   has_many :shared_lists
-  has_many :users, :through => :shared_lists
-  # belongs_to :user
-  has_many :members, through: :list_members
+  # has_many :users, :through => :shared_lists
+  belongs_to :user, :through => :shared_lists
+  has_many :team_mates, through: :teams
 
 
   validates :name, :presence => true, :length => {:minimum => 3}
