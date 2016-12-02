@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127223322) do
+ActiveRecord::Schema.define(version: 20161202000554) do
 
   create_table "items", force: :cascade do |t|
     t.string   "description"
-    t.boolean  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "status",      default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "list_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -32,11 +33,16 @@ ActiveRecord::Schema.define(version: 20161127223322) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "team_users", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teams", force: :cascade do |t|
-    t.integer  "list_id"
-    t.integer  "team_mate_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,6 +51,7 @@ ActiveRecord::Schema.define(version: 20161127223322) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "uid"
   end
 
 end

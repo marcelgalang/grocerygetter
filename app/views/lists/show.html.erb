@@ -13,11 +13,18 @@
       <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
     </ul>
   </section>
-  <footer class="footer">
+  <!-- <footer class="footer">
     <div>Add Users to List
+    <%= form_for([@list, @teamuser]) do |f| %>
+      <%= f.collection_select :username "Add a member") %>
+      <%= f.submit :style => "display: none" %>
+    <% end %>
 
 
     </div>
 
-  </footer>
+  </footer> -->
+
 </section>
+<%= link_to 'Logout', logout_path %> | <%= link_to 'Your Lists', lists_path %>
+
