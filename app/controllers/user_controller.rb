@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @users = User.all
+  end
 
   def show
     redirect_to '/' unless logged_in?
@@ -15,7 +18,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
       if user.save
         session[:user_id] = user.id
-        redirect_to user_path(user)
+        redirect_to list_path(user)
       else
         render :new
       end
